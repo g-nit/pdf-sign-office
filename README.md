@@ -366,7 +366,7 @@ Tools are grouped by task, so things are where you expect them:
 | Plan | Billing | Envelopes | Bulk send |
 |---|---|---|---|
 | Starter | monthly or yearly | 25 per month | — |
-| Pro | monthly or yearly | unlimited | ✓ |
+| Pro | monthly or yearly | 250 per month | ✓ |
 | Lifetime | one payment | unlimited | ✓ |
 
 All plans include templates, reminders, the audit trail, the certificate of completion and the digital seal. Prices are on the store page.
