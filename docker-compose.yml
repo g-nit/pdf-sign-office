@@ -1,21 +1,21 @@
-# PDF Studio Sign. Start with:  docker compose up -d
-# The API key for PDF Studio is printed in the log (docker compose logs)
+# PDF Sign Office Server. Start with:  docker compose up -d
+# The API key for PDF Sign Office is printed in the log (docker compose logs)
 # and saved as api-key.txt in the data folder.
 services:
-  pdfstudio-sign:
-    image: ghcr.io/g-nit/pdfstudio-sign:latest
-    container_name: pdfstudio-sign
+  pdfsignoffice-server:
+    image: ghcr.io/g-nit/pdfsignoffice-server:latest
+    container_name: pdfsignoffice-server
     restart: unless-stopped
     ports:
       - "8085:8080"            # host port 8085; change it if it's taken
     volumes:
       - ./data:/data           # any folder on the host; back it up
     environment:
-      ESIGN_SEAL_NAME: "PDF Studio Sign"   # name on the digital seal
+      ESIGN_SEAL_NAME: "PDF Sign Office Server"   # name on the digital seal
       ESIGN_SEAL_ORG: ""                   # optional: your company name
       ESIGN_LOCATION: ""                   # optional: recorded in the seal
       TZ: "UTC"                            # e.g. America/New_York
-      ESIGN_LICENSE_KEY: ""                # your PDF Studio Sign license key (needed to send envelopes)
+      ESIGN_LICENSE_KEY: ""                # your PDF Sign Office Server license key (needed to send envelopes)
       # PUID: "1000"                       # user/group that owns the data folder
       # PGID: "1000"
       # ESIGN_API_KEY: ""                  # set your own key instead of a generated one

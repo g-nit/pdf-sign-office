@@ -1,9 +1,9 @@
-PDF Studio — third-party notices
+PDF Sign Office — third-party notices
 ================================
 
-PDF Studio and PDF Studio Sign include the open-source components listed below.
+PDF Sign Office and PDF Sign Office Server include the open-source components listed below.
 Each component is the property of its authors and is used under the license shown.
-These licenses apply only to those components, not to PDF Studio itself.
+These licenses apply only to those components, not to PDF Sign Office itself.
 
 PART 1 — components
 
