@@ -371,8 +371,7 @@ Tools are grouped by task, so things are where you expect them:
 
 All plans include templates, reminders, the audit trail, the certificate of completion and the digital seal. Prices are on the store page.
 
-<!-- STORE LINK: replace when the store is live -->
-**Get a license:** store page coming soon.
+**Get a license:** [buy PDF Sign Office Server](https://buy.polar.sh/polar_cl_34DntqSGhu6FnoCDNpORpIFysC1QQATniFbha2itFnn). Payments and license keys are handled by Polar; your key arrives by email right after checkout.
 
 **Using your key:** put it in `ESIGN_LICENSE_KEY` in the compose file and restart the container (`docker compose up -d`). The server checks the key at start-up and twice a day; if it can't reach the license service it keeps working for 7 days. The plan and this month's usage show at the top of **E-signatures ▸ Agreements** in PDF Sign Office, with a **Check license** button.
 
