@@ -1,0 +1,38 @@
+# PDF Studio Sign. Start with:  docker compose up -d
+# The API key for PDF Studio is printed in the log (docker compose logs)
+# and saved as api-key.txt in the data folder.
+services:
+  pdfstudio-sign:
+    image: ghcr.io/g-nit/pdfstudio-sign:latest
+    container_name: pdfstudio-sign
+    restart: unless-stopped
+    ports:
+      - "8085:8080"            # host port 8085; change it if it's taken
+    volumes:
+      - ./data:/data           # any folder on the host; back it up
+    environment:
+      ESIGN_SEAL_NAME: "PDF Studio Sign"   # name on the digital seal
+      ESIGN_SEAL_ORG: ""                   # optional: your company name
+      ESIGN_LOCATION: ""                   # optional: recorded in the seal
+      TZ: "UTC"                            # e.g. America/New_York
+      ESIGN_LICENSE_KEY: ""                # your PDF Studio Sign license key (needed to send envelopes)
+      # PUID: "1000"                       # user/group that owns the data folder
+      # PGID: "1000"
+      # ESIGN_API_KEY: ""                  # set your own key instead of a generated one
+
+      # ── Trusted seal (off) ────────────────────────────────────────────────
+      # Uncomment and fill in when you have a publicly trusted (OV) document-
+      # signing certificate with cloud signing (CSC API) from your provider.
+      # See "Trusted seal with a cloud-signing certificate" in the README.
+      # ESIGN_SEAL_PROVIDER: "csc"
+      # ESIGN_CSC_URL: "https://<provider-csc-host>/csc/v1"
+      # ESIGN_CSC_CLIENT_ID: ""
+      # ESIGN_CSC_CLIENT_SECRET: ""
+      # ESIGN_CSC_GRANT: "client_credentials"   # or "password"
+      # ESIGN_CSC_USERNAME: ""                  # only for "password"
+      # ESIGN_CSC_PASSWORD: ""                  # only for "password"
+      # ESIGN_CSC_TOKEN_URL: ""                 # if login isn't at <CSC URL>/oauth2/token
+      # ESIGN_CSC_CREDENTIAL_ID: ""             # blank = first certificate on the account
+      # ESIGN_CSC_PIN: ""                       # if your key has a PIN
+      # ESIGN_CSC_TOTP_SECRET: ""               # automated-signing one-time-code secret
+      # ESIGN_TSA_URL: "http://<provider-timestamp-server>"   # trusted timestamps
