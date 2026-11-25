@@ -16,6 +16,13 @@ services:
       ESIGN_LOCATION: ""                   # optional: recorded in the seal
       TZ: "UTC"                            # e.g. America/New_York
       ESIGN_LICENSE_KEY: ""                # your PDF Sign Office Server license key (needed to send envelopes)
+      # Branding (optional; easier from PDF Sign Office: E-signatures ▸ Branding)
+      # ESIGN_BRAND_NAME: "Your Company"
+      # ESIGN_BRAND_THEME: "classic"       # classic, executive, modern, warm or minimal
+      # ESIGN_BRAND_COLOR: "#2563eb"
+      # ESIGN_SUPPORT_EMAIL: "help@yourcompany.com"
+      # ESIGN_SUPPORT_PHONE: "(555) 555-0100"
+      # ESIGN_BRAND_WEBSITE: "https://yourcompany.com"
       # PUID: "1000"                       # user/group that owns the data folder
       # PGID: "1000"
       # ESIGN_API_KEY: ""                  # set your own key instead of a generated one

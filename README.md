@@ -17,7 +17,7 @@ A desktop PDF editor for Windows and Linux: view, comment, edit, fill and sign f
 - [Install the signing server (Docker)](#install-the-signing-server-docker)
 - [Using e-signatures](#using-e-signatures)
   - [Screenshots](#screenshots)
-  - [The digital seal](#the-digital-seal) · [Trusted seal with a cloud-signing certificate](#trusted-seal-with-a-cloud-signing-certificate) · [Legal note](#legal-note)
+  - [Branding your signing page](#branding-your-signing-page) · [The digital seal](#the-digital-seal) · [Trusted seal with a cloud-signing certificate](#trusted-seal-with-a-cloud-signing-certificate) · [Legal note](#legal-note)
 - [Layout](#layout)
 - [Features](#features)
 - [Not included](#not-included) · [Known limits](#known-limits)
@@ -117,6 +117,13 @@ services:
       ESIGN_LOCATION: ""                   # optional: recorded in the seal
       TZ: "UTC"                            # e.g. America/New_York
       ESIGN_LICENSE_KEY: ""                # your PDF Sign Office Server license key (needed to send envelopes)
+      # Branding (optional; easier from PDF Sign Office: E-signatures ▸ Branding)
+      # ESIGN_BRAND_NAME: "Your Company"
+      # ESIGN_BRAND_THEME: "classic"       # classic, executive, modern, warm or minimal
+      # ESIGN_BRAND_COLOR: "#2563eb"
+      # ESIGN_SUPPORT_EMAIL: "help@yourcompany.com"
+      # ESIGN_SUPPORT_PHONE: "(555) 555-0100"
+      # ESIGN_BRAND_WEBSITE: "https://yourcompany.com"
       # PUID: "1000"                       # user/group that owns the data folder
       # PGID: "1000"
       # ESIGN_API_KEY: ""                  # set your own key instead of a generated one
@@ -267,6 +274,28 @@ Send a PDF for signature the way DocuSign does. Signers open a private link on t
   3. Subjects can use columns, such as `Contract – {Property address}`.
 
 To send documents to people outside your computer, first [install the signing server](#install-the-signing-server-docker).
+
+### Branding your signing page
+
+Signers see your company, not ours. In PDF Sign Office choose **E-signatures ▸ Agreements ▸ Branding** (or **Signing page branding** in the tool list) and set:
+
+- **Template:** Classic, Executive, Modern, Warm or Minimal
+- **Company name** and **logo** (PNG, JPEG or WebP, up to 1 MB)
+- **Accent color** to match your website
+- **Support email, phone and website**, shown at the bottom of every signing page
+- Optionally hide "Powered by PDF Sign Office"
+
+**Save and preview** opens a sample signing page in your browser. Settings are stored in the server's data folder; the `ESIGN_BRAND_*` lines in the compose file work too, and settings saved from the app take priority.
+
+| Template | Look |
+|---|---|
+| Classic | Clean white pages with a blue accent |
+| Executive | Navy header bar, serif headings, gold highlights |
+| Modern | Dark header, rounded cards, bold accent |
+| Warm | Soft cream background with earthy tones |
+| Minimal | Black and white, no frills |
+
+![The five signing-page templates with a sample company's branding](docs/screenshots/branding-templates.png)
 
 ### The digital seal
 On first start the server creates its own sealing certificate, named after `ESIGN_SEAL_NAME`. Any change to a sealed document is detected. PDF readers list the seal but show its identity as "unknown" or "not verified", because the certificate is self-issued, not issued by a recognized certificate authority. The audit trail and certificate of completion are unaffected.
